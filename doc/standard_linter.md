@@ -6,7 +6,10 @@ Recommended extensions to improve the experience when using linters
 
 ```json
 {
-  "recommendations": ["usernamehw.errorlens", "dbaeumer.vscode-eslint"]
+  "recommendations": [
+    "usernamehw.errorlens", 
+    "dbaeumer.vscode-eslint",
+  ]
 }
 ```
 
