@@ -3,8 +3,14 @@ ul, ol {
   
     & & {
       padding: {
-        bottom: 10;
-        left: 5;
+        bottom: 200;
+        left: 200;
       }
     }
   }
+
+.welcome {
+  max-width: 800px;
+  margin: 0 auto;
+  padding:0 1rem;
+}
