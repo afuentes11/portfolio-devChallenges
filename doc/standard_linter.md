@@ -31,6 +31,8 @@ Add the following script to the settings file.
 
 Install standard for development environment with npm
 
+_if you want to know more about __JavaScript Standard Style__ [click here](https://standardjs.com/)_
+
 ```bash
   npm install standard -D
 ```
