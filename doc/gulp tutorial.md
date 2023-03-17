@@ -39,6 +39,12 @@ In order to make use of these libraries, gulp comes with a set of methods and fu
 
 the following example reflects a workflow that automates the compilation of sass code to css and minification of the code. For this you will use multiple libraries, each one performing a different action.
 
+To be able to use them it is important to install the libraries only in the development environment.
+
+```bash
+npm install --save-dev gulp-plumber gulp-sass gulp-clean-css gulp-autoprefixer gulp-concat gulp-sourcemaps
+```
+
 ```javascript
 const { src, dest, watch } = require("gulp");
 const plumber = require("gulp-plumber");
@@ -73,4 +79,36 @@ async function compileSass() {
       dest("./build/css")
     ); /* Taking the stream and writing it to the build/css folder. */
 }
+```
+
+There are several ways to execute the function, the first is to execute it only once, and the second is to execute it every time changes are made to the selected file.
+
+for both options it is important that the export of the final function is done in the gulpfile.js file or, failing that, in the index file of the gulpfile.js folder.
+
+#### Run once only
+
+```javascript
+exports.compileSass = compileSass;
+```
+
+To execute the command would be as follows
+
+```bash
+npx gulp compileSass
+```
+
+#### Run each time one or more files are modified according to the specified path
+
+```javascript
+async function watchSass() {
+  watch("./scss/**/*.scss", compileSass);
+}
+
+exports.watchSass = watchSass;
+```
+
+To execute the command would be as follows
+
+```bash
+npx gulp watchSass
 ```
