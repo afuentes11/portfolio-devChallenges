@@ -10,7 +10,7 @@ const { browserSync } = require('./gulpfile-browserSync.js')
  * Transpile and minify the JavaScript code.
  * @returns The result of the src() function.
  */
-function transpileJS () {
+async function transpileJS () {
   return src('./js/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(plumber()) /* It prevents the watch task from stopping when an error occurs. */
@@ -27,7 +27,7 @@ function transpileJS () {
 /**
  * Watch for changes in the JavaScript code.
  */
-function watchJS () {
+async function watchJS () {
   watch('./js/**/*.js', transpileJS)
 }
 

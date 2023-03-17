@@ -14,3 +14,13 @@ ul, ol {
   margin: 0 auto;
   padding:0 1rem;
 }
+
+.welcome-text a {
+  color: aquamarine;
+  transition: all 0.3s ease;
+  text-decoration: none;
+
+  &:hover{
+    color: aqua;
+  }
+}
