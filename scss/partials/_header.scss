@@ -1,0 +1,199 @@
+@use "../base/variables"as v;
+@use "../functions/converts" as c;
+@use "../mixins" as m;
+@import "../animation";
+
+.header{
+    user-select: none;
+    @include m.flex($flex-flow: row nowrap, $gap: 24, $justify-content: flex-end, $align-items: center);
+    margin: 0 auto;
+    max-width: #{v.$desktopXL};
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.header__button--contact-me{
+    @include m.font($font-weight: 400, $font-size: 16, $line-height: 20, $color: var(--color));
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 3px solid var(--color);
+    border-radius: c.pixels-rem(32);
+    background-color: var(--background-card);
+    transition: all 0.3s;
+    height: 50px;
+    width: 200px;
+    letter-spacing: 0.1rem;
+    &:hover{
+        background: var(--color);
+        color: var(--background);
+        letter-spacing: 0.2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+}
+
+.options{
+    position: relative;
+    user-select: none;
+}
+
+
+.options__icon--settings > .material-icons-round {
+    font-size: 2rem;
+    color: var(--color);
+    cursor: pointer;
+}
+
+.options__menu{
+    @include m.flex($flex-flow: column nowrap);
+    padding: 1rem;
+    border-radius: c.pixels-rem(12);
+    position: absolute;
+    background-color: var(--background-card);
+    width: 10rem;
+    top: 50px;
+    right: 0px;
+    opacity: 0;
+    z-index: -1;
+}
+
+.options__menu--show{
+    animation: slide-in-bottom 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.options__icon--close{
+    display: none;
+    align-self: flex-end;
+
+    & > .material-icons-round{
+        font-size: 3rem;
+        color: var(--font-1);
+        cursor: pointer;
+    }
+}
+
+.select-mode{
+    @include m.flex($flex-flow: column nowrap, $gap: 8);
+    width: 100%;
+}
+
+.select__label{
+    @include m.font($font-weight: 600, $font-size: 24, $line-height: 29);
+    margin-bottom: 0.5rem;
+}
+
+.select-mode__item--radio{
+    display: none;
+
+    &:checked + .select-mode__item--label{
+        color: var(--color);
+        margin-left: 0.3rem;
+
+        &::after{
+            content: "✔";
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.select-mode__item--label{
+    @include m.font($font-weight: 400,  $font-size: 18, $line-height: 22);
+    width: 100%;
+}
+
+.select-color{
+    display: grid;
+    width: 100%;
+    grid-gap: 0.3rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.select-color__item--radio{
+    display: none;
+
+    &:checked + .select-color__item--label{
+        border-color: var(--background-card);
+    }
+}
+
+.select-color__item--label{
+    aspect-ratio: 1/1;
+    border: 2px solid;
+    border-radius: c.pixels-rem(8);
+}
+
+
+.select-color__item--label[for="radio-blue"]{
+    background-color: v.$blue;
+    border-color: v.$blue;
+}
+
+.select-color__item--label[for="radio-orange"]{
+    background-color: v.$orange;
+    border-color: v.$orange;
+}
+
+.select-color__item--label[for="radio-green"]{
+    background-color: v.$green;
+    border-color: v.$green;
+}
+
+.select-color__item--label[for="radio-purple"]{
+    background-color: v.$purple;
+    border-color: v.$purple;
+}
+
+.select-color__item--label[for="radio-pink"]{
+    background-color: v.$pink;
+    border-color: v.$pink;
+}
+
+.select-color__item--label[for="radio-yellow"]{
+    background-color: v.$yellow;
+    border-color: v.$yellow;
+}
+
+.select-color__item--label[for="radio-red"]{
+    background-color: v.$red;
+    border-color: v.$red;
+}
+
+@include m.tablet{
+
+    .options__menu{
+        @include m.flex($flex-flow: column nowrap);
+        padding: 1rem;
+        border-radius: c.pixels-rem(12) 0 0 c.pixels-rem(12);
+        position:fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--background-card);
+        width: c.pixels-rem(250);
+        overflow: hidden;
+    }
+
+    .options__menu--show{
+        animation: slide-in-right 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    .options__icon--close{
+        display: block;
+    }
+}
+
+@include m.phone{
+
+    .header__button--contact-me{
+        @include m.font($font-weight: 400, $font-size: 11, $line-height: 16, $color: var(--color));
+        cursor: pointer;
+        text-transform: uppercase;
+        background-color: var(--background-card);
+        height: 40px;
+        width: 150px;
+        &:hover{
+            letter-spacing: 0.18rem;
+            font-size: 0.8rem;
+        }
+    }
+}

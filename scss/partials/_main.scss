@@ -1,0 +1,34 @@
+@use "../base/variables"as v;
+@use "../functions/converts" as c;
+@use "../mixins" as m;
+
+.main{
+    margin: 0 auto;
+    max-width: #{v.$desktopXL};
+    width: calc(100% - 2rem);
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    grid-auto-flow: dense;
+    position: relative;
+}
+
+@include m.desktop{
+    .main{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@include m.tablet{
+    .body__overflow-hidden{
+        overflow: hidden;
+        height: 100vh;
+    }
+}
+
+@include m.phone {
+    .main{
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,26 @@
+@use '../base/variables' as v;
+@use '../functions/converts' as c;
+
+@mixin font( 
+    $font-style: normal,
+    $font-weight: 500,
+    $font-size: 36,
+    $line-height: 54,
+    $text-transform: initial,
+    $color: var(--font-2),
+    ){
+        font-style: $font-style;
+        font-weight: $font-weight;
+        font-size: c.pixels-rem($font-size);
+        line-height: c.pixels-rem($line-height);
+        text-transform: $text-transform;
+        color: $color;
+}
+
+@mixin resize-font(
+    $font-size: 36,
+    $line-height: 54
+    ){
+        font-size: c.pixels-rem($font-size);
+        line-height: c.pixels-rem($line-height);
+}

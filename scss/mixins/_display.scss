@@ -1,0 +1,25 @@
+@use '../functions/converts' as c;
+
+@mixin flex(
+    $display: flex, 
+    $flex-flow: row nowrap,
+    $justify-content: start,
+    $align-items: flex-start,
+    $gap: 16,
+    $flex: 0 1 auto,
+    ){
+        display: $display;
+        flex-flow: $flex-flow;
+        justify-content: $justify-content;
+        align-items: $align-items;
+        gap: c.pixels-rem($gap);
+        flex: $flex;
+}
+
+@mixin card(){
+    @include flex($flex-flow: column nowrap, $gap: 24);
+    background-color: var(--background-card);
+    padding: 1.5rem;
+    border-radius: c.pixels-rem(12);
+    height: fit-content;
+}

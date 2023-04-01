@@ -1,0 +1,210 @@
+@use "../functions/converts" as c;
+@use "../mixins" as m;
+
+.projects{
+    position: absolute;
+    top: 21.6rem;
+    width: calc(100% - 1rem);
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem; 
+}
+
+.projects-filter{
+    user-select: none;
+    @include m.card();
+    gap: 0.5rem;
+    position: sticky;
+    top: 0;
+}
+
+.projects-filter__title{
+    @include m.font($font-size: 18, $line-height: 22);
+}
+
+.projects-filter__container{
+    @include m.flex($flex-flow: row wrap, $gap: 8, $align-items: center);
+}
+
+.projects-filter__item{
+    display: none;
+}
+
+.projects-filter__item:checked + .projects-filter__item--title{
+    color: var(--background);
+    background-color: var(--color);
+    border-color: var(--color)
+}
+
+.projects-filter__item--title{
+    @include m.font($font-weight: 600, $font-size: 14, $line-height: 17);
+    border-radius: 0.75rem;
+    border: c.pixels-rem(1) solid var(--font-2);
+    padding: c.pixels-rem(8) c.pixels-rem(22);
+    cursor: pointer;
+
+    &:hover{
+        border-color: var(--color);
+        color: var(--color);
+    }
+}
+
+.project{
+    @include m.card();
+    flex-flow: row nowrap;
+}
+
+.project__photo--container{
+    flex: 5;
+    border-radius: c.pixels-rem(12);
+}
+
+.project__photo{
+    width: 100%;
+    border-radius: c.pixels-rem(12);
+}
+
+.project__content{
+    @include m.flex($flex-flow: column nowrap, $gap: 32);
+    flex: 8;
+    justify-content: space-between;
+    align-self: stretch;
+}
+
+.project__content--text{
+    @include m.flex($flex-flow: column nowrap, $gap: 8);
+}
+
+.tags{
+    @include m.flex($flex-flow: row wrap, $gap: 8);
+    
+}
+
+.tags__name{
+    @include m.font($font-size: 16, $line-height: 20, $color: var(--font-3));
+    border: c.pixels-rem(1) solid var(--font-3);
+    padding: 0.2rem 0.5rem;
+    border-radius: c.pixels-rem(12);
+}
+
+.project__name{
+    @include m.font($font-size: 24, $line-height: 29, $color: var(--font-1));
+    margin-top: 0.3rem;
+}
+
+.project__description{
+    @include m.font($font-size: 16, $line-height: 20, $color: var(--font-3));
+}
+
+.project__description--small{
+    @include m.font($font-size: 14, $line-height: 18, $color: var(--font-4));
+
+    &>a{
+        font-weight: 700;
+        color: var(--font-4);
+    }
+}
+
+.project__buttons{
+    @include m.flex($gap: 16);
+
+}
+
+.project__buttons--demo{
+    @include m.font($font-size: 18, $line-height: 22, $color: var(--background));
+    padding: c.pixels-rem(8) c.pixels-rem(28);
+    background-color: var(--color);
+    border-radius: c.pixels-rem(12);
+    border: c.pixels-rem(1) solid var(--color);
+    cursor: pointer;
+    &:hover{
+        filter: saturate(110%);
+    }
+}
+
+.project__buttons--code{
+    @include m.font($font-size: 18, $line-height: 22, $color: var(--color));
+    padding: c.pixels-rem(8) c.pixels-rem(28);
+    background-color: var(--background-card);
+    border-radius: c.pixels-rem(12);
+    border: c.pixels-rem(1) solid var(--color);
+    cursor: pointer;
+    &:hover{
+        filter: saturate(110%);
+    }
+}
+
+
+@include m.desktop{
+    .projects{
+        position: unset;
+        top: unset;
+        width: unset;
+        grid-column: 1;
+        grid-row: 4;
+        grid-column-start: span 2;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem; 
+    }
+}
+
+@include m.tablet{
+
+    .projects-filter__title{
+        @include m.resize-font(16,20);
+    }
+
+    .projects-filter__item--title{
+        @include m.resize-font(12,15);
+    }
+
+    .tags__name{
+        @include m.resize-font(14,18);
+    }
+
+    .project__name{
+        @include m.resize-font(22,27);
+    }
+
+    .project__description{
+        @include m.resize-font(14,18);
+    }
+
+    .project__buttons--demo{
+        @include m.resize-font(16,20);
+    }
+
+    .project__buttons--code{
+        @include m.resize-font(16,20);
+    }
+}
+
+@include m.phone{
+    .projects{
+        grid-column: 1;
+        grid-row: 6;
+    }
+
+    
+    .projects-filter__item--title{
+        padding: c.pixels-rem(6) c.pixels-rem(16);
+    }
+
+    .project{
+        @include m.card();
+        flex-flow: column nowrap;
+    }
+
+    .project__buttons--demo{
+        @include m.resize-font(16,20);
+        padding: c.pixels-rem(10) c.pixels-rem(20);
+    }
+
+    .project__buttons--code{
+        @include m.resize-font(16,20);
+        padding: c.pixels-rem(10) c.pixels-rem(20);
+    }
+}

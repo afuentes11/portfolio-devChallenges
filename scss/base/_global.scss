@@ -1,0 +1,16 @@
+@use "../mixins" as m;
+
+.body{
+    position: relative;
+    height: 195rem;
+}
+
+svg path {
+    fill: var(--font-2);
+  }
+
+@include m.desktop{
+    .body{
+        height: unset;
+    }
+}

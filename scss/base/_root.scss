@@ -1,0 +1,18 @@
+@use 'variables' as v;
+
+:root{
+    --background: #{v.$light-background};
+    --background-card: #{v.$light-background-card};
+    --font-1: #{v.$light-font-1};
+    --font-2: #{v.$light-font-2};
+    --font-3: #{v.$light-font-3};
+    --font-4: #{v.$light-font-4};
+
+    --color: #{v.$blue};
+
+    font-family: v.$font-family;
+    color: var(--font-2);
+    font-weight: 500;
+    scroll-behavior: smooth;
+    background-color: var(--background);
+}

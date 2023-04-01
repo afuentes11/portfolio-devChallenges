@@ -1,0 +1,39 @@
+@use "../functions/converts" as c;
+@use "../mixins" as m;
+
+.footer{
+    @include m.flex($flex-flow: column nowrap, $align-items: center, $justify-content: center);
+    margin-top: 5rem;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    
+}
+
+.footer__text{
+    @include m.font($font-weight: 400, $font-size: 14, $line-height: 18, $color: var(--font-3));
+    text-align: center;
+    
+}
+
+.footer__text--strong{
+    @include m.font($font-weight: 700, $font-size: 14, $line-height: 18, $color: var(--font-2));
+    transition: all 0.1s ease-in-out;
+
+    &:hover{
+        color: var(--color);
+    }
+
+}
+
+@include m.desktop{
+    .footer{
+        position: unset;
+        bottom: unset;
+        right: unset;
+        left: unset;
+        
+    }
+}

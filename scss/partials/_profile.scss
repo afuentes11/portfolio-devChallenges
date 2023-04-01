@@ -1,0 +1,147 @@
+@use "../functions/converts" as c;
+@use "../mixins" as m;
+
+
+.profile{
+    @include m.card();
+}
+
+.profile__photo-container{
+    display: grid;
+    align-content: center;
+    width: 100%;
+    border-radius: c.pixels-rem(12);
+    background-color: var(--color);
+}
+
+.profile__photo{
+    width: 100%;
+    border-radius: c.pixels-rem(12);
+}
+
+.profile__description{
+    @include m.flex($flex-flow: column nowrap, $gap: 32);
+}
+
+.profile__description--container{
+    @include m.flex($flex-flow: column nowrap, $gap: 32);
+}
+
+.profile__name{
+    @include m.flex($flex-flow: column nowrap, $gap: 0);
+}
+
+.profile__name--first{
+    @include m.font($font-weight: 600, $font-size: 24, $line-height: 29);
+}
+
+.profile__name--rol{
+    @include m.font($font-weight: 500, $font-size: 18, $line-height: 22, $color: var(--font-3));
+    text-transform: capitalize;
+}
+
+.profile__contact{
+    @include m.flex($flex-flow: column nowrap, $gap: 8);
+    @include m.font($font-weight: 500, $font-size: 18, $line-height: 22, $color: var(--font-2));
+}
+
+.profile__contact--text{
+    @include m.flex($flex-flow: row nowrap, $gap: 14, $align-items: center);
+    @include m.font($font-weight: 500, $font-size: 18, $line-height: 22);
+}
+
+.profile__description--content{
+    @include m.font($font-weight: 500, $font-size: 18, $line-height: 22, $color: var(--font-3));
+    text-align: justify;
+    width: 90%;
+}
+
+@include m.desktop{
+    .profile{
+        @include m.flex($flex-flow: row nowrap, $gap: 32);
+        background-color: var(--background-card);
+        grid-row-start: unset;
+        grid-column-start: span 2;
+        
+    }
+
+    .profile__photo-container{
+        flex: 1;
+    }
+
+    .profile__photo{
+        width: 100%;
+        min-width: c.pixels-rem(160);
+    }
+
+    .profile__description{
+        flex: 3;
+    }
+
+    .profile__description--container{
+        @include m.flex($flex-flow: row nowrap, $justify-content: space-between);
+        width: 100%
+    }
+}
+
+@include m.tablet{
+
+    .profile{
+        gap: 1rem;
+    }
+
+    .profile__description{
+        gap: 1rem;
+    }
+    
+    .profile__description--container{
+        @include m.flex($flex-flow: column nowrap, $justify-content: space-between, $gap: 10);
+        width: 100%
+    }
+    
+    .profile__name--first{
+        font-size: c.pixels-rem(22);
+        line-height: c.pixels-rem(27);
+    }
+    
+    .profile__name--rol{
+        font-size: c.pixels-rem(16);
+        line-height: c.pixels-rem(20);
+    }
+    
+    .profile__contact{
+        font-size: c.pixels-rem(16);
+        line-height: c.pixels-rem(20);
+    }
+    
+    .profile__description--content{
+        font-size: c.pixels-rem(16);
+        line-height: c.pixels-rem(20);
+    }
+
+}
+
+@include m.phone{
+
+    .profile{
+        @include m.flex($flex-flow: column nowrap, $gap: 16);
+        background-color: var(--background-card);
+        grid-column-start: span 1;
+    }
+
+    .profile__photo{
+        width: 100%;
+        min-width: unset;
+    }
+
+    .profile__description{
+        gap: 1rem;
+        flex: 1;
+    }
+
+    .profile__description--container{
+        @include m.flex($flex-flow: column nowrap, $justify-content: space-between);
+        width: 100%
+    }
+
+}

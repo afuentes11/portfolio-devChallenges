@@ -1,0 +1,82 @@
+@use "../functions/converts" as c;
+@use "../mixins" as m;
+
+.hobbies{
+    @include m.card();
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.hobbies__title{
+    @include m.font($font-size: 24, $line-height: 29);
+}
+
+.hobbies__container{
+    @include m.flex($flex-flow: column nowrap, $gap: 32);
+    width: 100%;
+}
+
+.hobbie{
+    @include m.flex($flex-flow: column nowrap, $gap: 16);
+    width: 100%;
+}
+
+.hobbie__photo--container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+    height: 0;
+    padding: 20% 0;
+}
+
+.hobbie__photo{
+    width: 100%;
+    border-radius: 12px;
+}
+
+.hobbie__container{
+    @include m.flex($flex-flow: column nowrap, $gap: 4);
+}
+
+.hobbie__title{
+    @include m.font($font-weight: 600, $font-size: 18, $line-height: 22);
+}
+
+
+.hobbie__description{    
+    @include m.font($font-size: 16, $line-height: 20, $color: var(--font-3));
+}
+
+@include m.desktop{
+    .hobbies{
+        grid-column: 2;
+        grid-row: 3;
+    }
+}
+
+@include m.tablet{
+    
+    .hobbies__title{
+        font-size: c.pixels-rem(22);
+        line-height: c.pixels-rem(27);
+    }
+    
+    .hobbie__title{
+        font-size: c.pixels-rem(16);
+        line-height: c.pixels-rem(22);
+    }
+    
+    .hobbie__description{    
+        font-size: c.pixels-rem(14);
+        line-height: c.pixels-rem(18);
+    }
+}
+
+@include m.phone{
+    .hobbies{
+        grid-column: 1;
+        grid-row: 5;
+    }
+}

@@ -1,0 +1,52 @@
+@use "../functions/converts" as c;
+@use "../mixins" as m;
+
+.stack{
+    @include m.card();
+}
+
+.stack__title{
+    @include m.font($font-weight: 700, $font-size: 18, $line-height: 22);
+}
+
+.stack__container{
+    @include m.flex($flex-flow: row nowrap, $gap: 16);
+    width: 100%;
+}
+
+.stack__skill-name{
+    @include m.flex($flex-flow: column nowrap, $gap: 16);
+}
+
+.stack__skill--name{
+    @include m.font($font-size: 16, $line-height: 20);
+}
+
+.stack__skill-progress{
+    @include m.flex($flex-flow: column nowrap, $gap: 26.5);
+    width: 100%;
+    align-self: center;
+}
+
+.stack__skill--progress[value]{
+    width: 100%;
+    height: c.pixels-rem(10);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+
+    &::-webkit-progress-bar {
+        background-color: var(--background);
+        border-radius: c.pixels-rem(12);
+    }
+
+    &::-webkit-progress-value {
+        background-color: var(--color);
+        border-radius: c.pixels-rem(12);
+    }
+
+}
+
+
+

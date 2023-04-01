@@ -1,0 +1,71 @@
+@use "../functions/converts" as c;
+@use "../mixins" as m;
+
+.work-experiences{
+    @include m.card();
+}
+
+.work-experiences__title{
+    @include m.font($font-size: 24, $line-height: 29);
+}
+
+.work-experiences__container{
+    @include m.flex($flex-flow: column nowrap,  $gap: 32);
+}
+
+.experience{
+    @include m.flex($gap: 16);
+}
+
+.experience__photo--container{
+    flex: 1;
+}
+
+.experience__photo{
+    width: 100%;
+}
+
+.experience__container{
+    @include m.flex($flex-flow: column nowrap,  $gap: 12);
+    flex: 4;
+}
+
+.experience__period{
+    @include m.font($font-size: 14, $line-height: 17, $color: var(--font-3));
+    text-transform: capitalize;
+}
+
+.experience__title{
+    @include m.font($font-weight: 600, $font-size: 16, $line-height: 20, $color: var(--font-1));
+}
+
+.experience__description{
+    @include m.font($font-size: 16, $line-height: 20, $color: var(--font-3));
+    margin-top: c.pixels-rem(4);
+    text-align: justify;
+    width: 87%;
+}
+
+@include m.tablet{
+
+    .work-experiences__title{
+        font-size: c.pixels-rem(22);
+        line-height: c.pixels-rem(27);
+    }
+    
+    .experience__period{
+        font-size: c.pixels-rem(12);
+        line-height: c.pixels-rem(17);
+    }
+    
+    .experience__title{
+        font-size: c.pixels-rem(14);
+        line-height: c.pixels-rem(18);
+    }
+    
+    .experience__description{
+        font-size: c.pixels-rem(14);
+        line-height: c.pixels-rem(20);
+    }
+
+}

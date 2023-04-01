@@ -18,7 +18,6 @@ async function transpileJS () {
       presets: ['@babel/env'] /* Transpiling the JavaScript code to ES5. */
     }))
     .pipe(uglify()) /* It minifies the JavaScript code. */
-    .pipe(rename({ suffix: '.min' })) /* It adds the `.min` suffix to the minified JavaScript file. */
     .pipe(sourcemaps.write('.')) /* It creates a sourcemap file for the minified JavaScript file. */
     .pipe(dest('./build/js')) /* Saving the transpiled and minified JavaScript code to the `./build/js` folder. */
     .pipe(browserSync.stream()) /* It reloads the browser when the JavaScript code is transpiled and minified. */
