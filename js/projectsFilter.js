@@ -32,6 +32,9 @@ function getProject (tagsChecked) {
   }
 
   const body = document.getElementsByClassName('body')[0]
+  const projectsFilterTotal = document.getElementById('projects-filter__total')
+
+  projectsFilterTotal.innerText = projectsInScreen.length
 
   if (window.innerWidth > 992) {
     if (projectsInScreen.length > 5) {
