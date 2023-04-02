@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx gulp",
+    "img": "npx gulp img",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npx standard",
     "lint-fix": "npx standard --fix"
